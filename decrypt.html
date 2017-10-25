@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>self-decrypting-html-page</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<style>
+body {
+	margin: 0 auto; padding: 0 1em; max-width: 28em;
+	font-size: 110%; font-family: "Helvetica Neue", sans-serif;
+}
+p { color: #333; line-height: 1.3; }
+a { color: #2980b9; text-decoration: none; }
+
+input, button, textarea {
+	display: block; margin: 1em 0; box-sizing: border-box; width: 100%;
+	font-size: 100%;
+}
+input, textarea { padding: .4em; border: 1px solid #888; border-radius: .2em; }
+input.error, textarea.error { border-color: #c0392b; }
+button {
+	padding: .4em;
+	border: none; border-radius: .2em;
+	color: white; background-color: #2980b9;
+	cursor: pointer;
+}
+button:active { background-color: #1970a9; }
+button.error { background-color: #c0392b; }
+textarea { min-height: 7em; font-family: "Helvetica Neue", sans-serif; }
+
+pre code {
+	display: block;
+	background-color: #ddd;
+	border-radius: .2em;
+	padding: .4em;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.hidden { display: none; }
+
+#hint {
+	padding: .4em .5em; border-radius: .2em;
+	color: white; background-color: #c0392b;
+}
+	</style>
+</head>
+<body>
+	<p>This file contains an encrypted message.</p>
+	<p id="hint" class="hidden"></p>
+	<input type="password" id="password" placeholder="Enter the password."/>
+	<input type="text" id="nonce" placeholder="Enter the nonce."/>
+	<button id="submit">decrypt the message</button>
+	<pre id="message" class="hidden"></pre>
+	<script id="encrypted">{{encrypted}}</script>
+	<script>{{js}}</script>
+</body>
+</html>

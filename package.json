@@ -22,6 +22,7 @@
 	"bugs": "https://github.com/derhuerst/self-decrypting-html-page/issues",
 	"license": "ISC",
 	"dependencies": {
+		"sodium-encryption": "^1.2.3"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",
