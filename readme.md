@@ -2,6 +2,7 @@
 
 **Generate a standalone HTML page that decrypts an encrypted message.**
 
+[![npm version](https://img.shields.io/npm/v/self-decrypting-html-page.svg)](https://www.npmjs.com/package/self-decrypting-html-page)
 [![build status](https://img.shields.io/travis/derhuerst/self-decrypting-html-page.svg)](https://travis-ci.org/derhuerst/self-decrypting-html-page)
 [![dependency status](https://img.shields.io/david/derhuerst/self-decrypting-html-page.svg)](https://david-dm.org/derhuerst/self-decrypting-html-page#info=dependencies)
 [![dev dependency status](https://img.shields.io/david/dev/derhuerst/self-decrypting-html-page.svg)](https://david-dm.org/derhuerst/self-decrypting-html-page#info=devDependencies)

@@ -7,4 +7,5 @@ npm-debug.log
 package-lock.json
 shrinkwrap.yaml
 
+/generate.js
 /decrypt.js
