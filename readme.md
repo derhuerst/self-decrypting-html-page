@@ -19,8 +19,15 @@ npm install self-decrypting-html-page
 ## Usage
 
 ```js
+const encryption = require('sodium-encryption')
 const generateHTML = require('self-decrypting-html-page')
 
+const msg = Buffer.from('super secret message')
+const key = encryption.key()
+console.log('key:', key.toString('hex'))
+
+const nonce = encryption.nonce()
+const encrypted = encryption.encrypt(msg, nonce, key)
 const html = generateHTML(nonce, encrypted)
 ```
 
