@@ -49,11 +49,11 @@ pre code {
 <body>
 	<p>This file contains an encrypted message.</p>
 	<p id="hint" class="hidden"></p>
-	<input type="password" id="password" placeholder="Enter the password."/>
-	<input type="text" id="nonce" placeholder="Enter the nonce."/>
+	<input type="password" id="key" placeholder="Enter the key."/>
 	<button id="submit">decrypt the message</button>
 	<pre id="message" class="hidden"></pre>
-	<script id="encrypted">{{encrypted}}</script>
+	<script id="nonce" type="text/plain">{{nonce}}</script>
+	<script id="encrypted" type="text/plain">{{encrypted}}</script>
 	<script>{{js}}</script>
 </body>
 </html>
