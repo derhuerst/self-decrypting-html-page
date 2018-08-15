@@ -11,7 +11,7 @@
 The idea is two have a tool that encrypts any message/secret and generates something that can decrypt itself. I see two advantages of the HTML-based solution over others:
 
 - **low entry-barrier**: Everyone has a web browser. Everyone with a reasonably modern browser will be able to use the tool, without installing anything. It is also more platform-independent than other solutions.
-- **self-contained**: The generated self-decrypting page contains all the logic it needs to decrypt the encrypted messages it contains. It can be easily stored as a file.
+- **self-contained**: The generated page has all the logic built-in that it needs to decrypt the encrypted message. It can be stored as a standalone file.
 
 With `self-decrypting-html-page`, you can use this functionality anywhere. Consider the example below.
 
@@ -36,6 +36,7 @@ console.log('key:', key.toString('hex'))
 const nonce = encryption.nonce()
 const encrypted = encryption.encrypt(msg, nonce, key)
 const html = generateHTML(nonce, encrypted)
+// write this HTML to a file, open in the browser
 ```
 
 
