@@ -30,10 +30,11 @@
 		"babelify": "^10.0.0",
 		"brfs": "^2.0.0",
 		"browserify": "^16.2.2",
+		"uglify-es": "^3.3.9",
 		"uglifyify": "^5.0.1"
 	},
 	"scripts": {
-		"build-client": "browserify -g [ babelify --presets [@babel/preset-env] ] -g uglifyify lib/decrypt.js >decrypt.js",
+		"build-client": "browserify -g [ babelify --presets [@babel/preset-env] ] -g uglifyify lib/decrypt.js | uglifyjs -mc >decrypt.js",
 		"build-generate": "brfs lib/generate.js >generate.js",
 		"build": "npm run build-client && npm run build-generate",
 		"prepublishOnly": "npm run build"
