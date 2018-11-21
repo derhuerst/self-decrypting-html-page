@@ -1,7 +1,7 @@
 {
 	"name": "self-decrypting-html-page",
 	"description": "Generate a standalone HTML page that decrypts data.",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"main": "generate.js",
 	"files": [
 		"generate.js",
