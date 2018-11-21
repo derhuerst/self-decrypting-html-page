@@ -25,15 +25,15 @@
 		"sodium-encryption": "^1.2.3"
 	},
 	"devDependencies": {
-		"babel-core": "^6.26.0",
-		"babel-preset-env": "^1.6.1",
-		"babelify": "^8.0.0",
+		"@babel/core": "^7.1.6",
+		"@babel/preset-env": "^7.1.6",
+		"babelify": "^10.0.0",
 		"brfs": "^2.0.0",
 		"browserify": "^16.2.2",
 		"uglifyify": "^5.0.1"
 	},
 	"scripts": {
-		"build-client": "browserify -g [ babelify --presets env ] -g uglifyify lib/decrypt.js >decrypt.js",
+		"build-client": "browserify -g [ babelify --presets [@babel/preset-env] ] -g uglifyify lib/decrypt.js >decrypt.js",
 		"build-generate": "brfs lib/generate.js >generate.js",
 		"build": "npm run build-client && npm run build-generate",
 		"prepublishOnly": "npm run build"
