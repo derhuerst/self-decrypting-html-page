@@ -1,12 +1,16 @@
 {
 	"name": "self-decrypting-html-page",
 	"description": "Generate a standalone HTML page that decrypts data.",
-	"version": "0.2.4",
+	"version": "1.0.1",
 	"main": "generate.js",
+	"bin": {
+		"self-decrypting-html-page": "./cli.js"
+	},
 	"files": [
 		"generate.js",
 		"decrypt.js",
-		"decrypt.html"
+		"decrypt.html",
+		"cli.js"
 	],
 	"keywords": [
 		"secret",
@@ -14,7 +18,8 @@
 		"decrypt",
 		"sodium",
 		"html",
-		"share"
+		"share",
+		"cli"
 	],
 	"author": "Jannis R <mail@jannisr.de>",
 	"homepage": "https://github.com/derhuerst/self-decrypting-html-page",
@@ -22,6 +27,7 @@
 	"bugs": "https://github.com/derhuerst/self-decrypting-html-page/issues",
 	"license": "ISC",
 	"dependencies": {
+		"mri": "^1.1.4",
 		"sodium-encryption": "^1.2.3"
 	},
 	"devDependencies": {

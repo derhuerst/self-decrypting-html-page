@@ -8,12 +8,12 @@
 [![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
 [![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
 
-The idea is two have a tool that encrypts any message/secret and generates something that can decrypt itself. I see two advantages of the HTML-based solution over others:
+The idea is two have a tool that encrypts any message/secret and generates something that can *decrypt itself*. I see two advantages of the HTML-based solution over others:
 
 - **low entry-barrier**: Everyone has a web browser. Everyone with a reasonably modern browser will be able to use the tool, without installing anything. It is also more platform-independent than other solutions.
 - **self-contained**: The generated page has all the logic built-in that it needs to decrypt the encrypted message. It can be stored as a standalone file.
 
-With `self-decrypting-html-page`, you can use this functionality anywhere. Consider the example below.
+With `self-decrypting-html-page`, you can use this functionality anywhere. Consider the examples below.
 
 
 ## Installing
@@ -23,7 +23,14 @@ npm install self-decrypting-html-page
 ```
 
 
-## Usage
+## Usage from the command line
+
+```shell
+echo 'my secret message' | self-decrypting-html-page >encrypted-message.html 2>key.txt
+```
+
+
+## Usage with JS
 
 ```js
 const encryption = require('sodium-encryption')
@@ -45,7 +52,7 @@ const html = generateHTML(nonce, encrypted)
 - [`lib/decrypt.js`](lib/decrypt.js) contains the logic to decrypt the message, using the nonce and the password entered by the user.
 - [`lib/decrypt.js` gets bundled with all its dependencies and stored in `decrypt.js`](https://github.com/derhuerst/self-decrypting-html-page/blob/546b4d9a6d9694df4fe498bdc53288216fa224a0/package.json#L36), using [Browserify](http://browserify.org).
 - Then, using [brfs](https://www.npmjs.com/package/brfs), [the generated bundle will be inserted](https://github.com/derhuerst/self-decrypting-html-page/blob/546b4d9a6d9694df4fe498bdc53288216fa224a0/package.json#L37) into another JS file `generate.js`. The version of `self-decrypting-html-page` published to npm already contains it.
-- When you call `generateHTML(nonce, encrypted)`, it will replace placeholders in the HTML (that already contains the code to decrypt) and give the final string back to you.
+- When you call `generateHTML(nonce, encrypted)` or run it from the command line, it will replace placeholders in the HTML (that already contains the code to decrypt) and give the final string back to you.
 
 
 ## Contributing
