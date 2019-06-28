@@ -8,4 +8,5 @@ package-lock.json
 shrinkwrap.yaml
 
 /generate.js
+/custom-html.js
 /decrypt.js

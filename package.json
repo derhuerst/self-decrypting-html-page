@@ -9,6 +9,8 @@
 	"files": [
 		"generate.js",
 		"decrypt.js",
+		"custom-html.js",
+		"lib",
 		"decrypt.html",
 		"cli.js"
 	],
@@ -41,8 +43,9 @@
 	},
 	"scripts": {
 		"build-client": "browserify -g [ babelify --presets [@babel/preset-env] ] -g uglifyify lib/decrypt.js | uglifyjs -mc >decrypt.js",
+		"build-custom-html": "brfs lib/custom-html.js >custom-html.js",
 		"build-generate": "brfs lib/generate.js >generate.js",
-		"build": "npm run build-client && npm run build-generate",
+		"build": "npm run build-client && npm run build-custom-html && npm run build-generate",
 		"prepublishOnly": "npm run build"
 	}
 }

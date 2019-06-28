@@ -10,7 +10,12 @@ const argv = mri(process.argv.slice(2), {
 
 if (argv.help || argv.h) {
 	process.stdout.write(`\
-echo 'my secret message' | self-decrypting-html-page >encrypted-message.html 2>key.txt
+Usage:
+	echo 'my secret message' | self-decrypting-html-page >encrypted-message.html
+	self-decrypting-html-page >encrypted-message.html 2>key.txt
+Options:
+	--html  Path to an HTML template for the self-crypting page. Needs to contain
+	        the phrases \`{{nonce}}\`, \`{{encrypted}}\` & \`{{js}}\` to work.
 `)
 	process.exit()
 }
@@ -22,7 +27,6 @@ if (argv.version || argv.v) {
 
 const encryption = require('sodium-encryption')
 const {isatty} = require('tty')
-const generateHTML = require('.')
 
 const asBuf = (readable) => new Promise((resolve, reject) => {
 	const bufs = []
@@ -42,6 +46,16 @@ const printKey = (key) => {
 	const asHex = key.toString('hex')
 	if (isatty(process.stderr.fd)) console.error('This is your key:\n' + asHex)
 	else process.stderr.write(asHex)
+}
+
+let generateHTML
+if (argv.html) {
+	const {readFileSync} = require('fs')
+	const withCustomHtml = require('./custom-html')
+	const html = readFileSync(argv.html, {encoding: 'utf-8'})
+	generateHTML = withCustomHtml(html)
+} else {
+	generateHTML = require('.')
 }
 
 asBuf(process.stdin)

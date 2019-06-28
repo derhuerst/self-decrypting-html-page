@@ -29,6 +29,8 @@ npm install self-decrypting-html-page
 echo 'my secret message' | self-decrypting-html-page >encrypted-message.html 2>key.txt
 ```
 
+You can also generate a custom self-decryptinging HTML page with `--html path/to/template.html`. The template needs to contain the phrases `{{nonce}}`, `{{encrypted}}` & `{{js}}` to work.
+
 
 ## Usage with JS
 
