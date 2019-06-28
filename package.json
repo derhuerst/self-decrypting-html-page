@@ -41,6 +41,7 @@
 		"babelify": "^10.0.0",
 		"brfs": "^2.0.0",
 		"browserify": "^16.2.2",
+		"pkg": "^4.4.0",
 		"uglify-es": "^3.3.9",
 		"uglifyify": "^5.0.1"
 	},
@@ -49,6 +50,13 @@
 		"build-custom-html": "brfs lib/custom-html.js >custom-html.js",
 		"build-generate": "brfs lib/generate.js >generate.js",
 		"build": "npm run build-client && npm run build-custom-html && npm run build-generate",
-		"prepublishOnly": "npm run build"
+		"prepublishOnly": "npm run build",
+		"build-binaries": "pkg . --out-path bin"
+	},
+	"pkg": {
+		"targets": [
+			"latest-macos-x64",
+			"latest-linux-x64"
+		]
 	}
 }

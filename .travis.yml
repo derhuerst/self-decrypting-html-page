@@ -6,3 +6,16 @@ node_js:
 script:
   - 'npm run build'
   - 'node example.js "Travis says hello!" >example.html'
+jobs:
+  include:
+    - stage: 'build binaries & upload to GitHub'
+      node_js: stable
+      script: 'npm run build && npm run build-binaries && ls -h bin'
+      deploy:
+        on:
+          tags: true
+        provider: releases
+        api_key: $GITHUB_TOKEN
+        skip_cleanup: true
+        file: bin/*
+        file_glob: true
