@@ -28,6 +28,9 @@
 	"repository": "derhuerst/self-decrypting-html-page",
 	"bugs": "https://github.com/derhuerst/self-decrypting-html-page/issues",
 	"license": "ISC",
+	"engines": {
+		"node": ">=8"
+	},
 	"dependencies": {
 		"mri": "^1.1.4",
 		"sodium-encryption": "^1.2.3"
