@@ -25,8 +25,18 @@ npm install self-decrypting-html-page
 
 ## Usage from the command line
 
+Use [`npx`](https://npmjs.com/package/npx) or install globally via `npm install -g self-decrypting-html-page`
+
 ```shell
-echo 'my secret message' | self-decrypting-html-page >encrypted-message.html 2>key.txt
+# basic usage
+echo 'my secret message' | npx self-decrypting-html-page >encrypted-message.html
+# This is your key:
+# 964d87e28a7f468afe33c255e689d2baa5d67dabc43d6262971a5efd18917929
+
+# write decryption key to file
+echo 'my secret message' | npx self-decrypting-html-page >encrypted-message.html 2>key.txt
+cat key.txt
+# 964d87e28a7f468afe33c255e689d2baa5d67dabc43d6262971a5efd18917929
 ```
 
 You can also generate a custom self-decryptinging HTML page with `--html path/to/template.html`. The template needs to contain the phrases `{{nonce}}`, `{{encrypted}}` & `{{js}}` to work.
