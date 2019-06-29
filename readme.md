@@ -16,16 +16,13 @@ The idea is two have a tool that encrypts any message/secret and generates somet
 With `self-decrypting-html-page`, you can use this functionality anywhere. Consider the examples below.
 
 
-## Installing
-
-```shell
-npm install self-decrypting-html-page
-```
-
-
 ## Usage from the command line
 
-Use [`npx`](https://npmjs.com/package/npx) or install globally via `npm install -g self-decrypting-html-page`
+There are three ways to install this tool:
+
+- standalone binaries from the [releases page](/derhuerst/self-decrypting-html-page/releases)
+- installing globally using [npm](https://docs.npmjs.com/cli/npm): `npm install -g self-decrypting-html-page`
+- temporarily installing it into a temp directory and running it, using [npx](https://npmjs.com/package/npx): `npx self-decrypting-html-page`
 
 ```shell
 # basic usage
@@ -39,10 +36,12 @@ cat key.txt
 # 964d87e28a7f468afe33c255e689d2baa5d67dabc43d6262971a5efd18917929
 ```
 
-You can also generate a custom self-decryptinging HTML page with `--html path/to/template.html`. The template needs to contain the phrases `{{nonce}}`, `{{encrypted}}` & `{{js}}` to work.
-
 
 ## Usage with JS
+
+```shell
+npm i self-decrypting-html-page
+```
 
 ```js
 const encryption = require('sodium-encryption')
@@ -56,6 +55,28 @@ const nonce = encryption.nonce()
 const encrypted = encryption.encrypt(msg, nonce, key)
 const html = generateHTML(nonce, encrypted)
 // write this HTML to a file, open in the browser
+```
+
+
+## Usage with custom HTML template
+
+Write the template for self-decrypting HTML page. Check [`decrypt.html`] for the necessary elements.
+
+Generating a custom self-decrypting HTML page from the command line:
+
+```shell
+echo 'my secret message' | npx self-decrypting-html-page --html path/to/template.html >encrypted-message.html
+```
+
+Generating a it using JS:
+
+```js
+const {readFileSync} = require('fs')
+const {join} = require('path')
+const generateHTML = require('self-decrypting-html-page/custom-html')
+
+const template = readFileSync(join(__dirname, 'template.html'))
+const html = generateHTML(nonce, encrypted, template)
 ```
 
 
