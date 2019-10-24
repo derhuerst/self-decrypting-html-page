@@ -60,7 +60,7 @@ const html = generateHTML(nonce, encrypted)
 
 ## Usage with custom HTML template
 
-Write the template for self-decrypting HTML page. Check [`decrypt.html`] for the necessary elements.
+Write the template for self-decrypting HTML page. Check [`decrypt.html`](decrypt.html) for the necessary elements.
 
 Generating a custom self-decrypting HTML page from the command line:
 
