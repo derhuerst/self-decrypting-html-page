@@ -1,0 +1,53 @@
+name: release binaries
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - run: npm install
+      - run: npm run build
+
+      - name: generate HTML examples
+        run: |
+          node example.js "Travis says hello!" >/dev/null
+          echo secret | ./cli.js >/dev/null
+
+      - name: build binaries
+        run: |
+          npm run build-binaries
+          ls -h bin
+
+      - name: create release for tag ${{ github.ref }}
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+      - uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: bin/self-decrypting-html-page-linux
+          asset_name: self-decrypting-html-page-linux
+          asset_content_type: application/octet-stream
+      - uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: bin/self-decrypting-html-page-macos
+          asset_name: self-decrypting-html-page-macos
+          asset_content_type: application/octet-stream
