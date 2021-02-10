@@ -1,7 +1,7 @@
 {
 	"name": "self-decrypting-html-page",
 	"description": "Generate a standalone HTML page that decrypts data.",
-	"version": "2.0.4",
+	"version": "2.0.5",
 	"main": "generate.js",
 	"bin": {
 		"self-decrypting-html-page": "./cli.js"
@@ -40,7 +40,7 @@
 		"@babel/preset-env": "^7.1.6",
 		"babelify": "^10.0.0",
 		"brfs": "^2.0.0",
-		"browserify": "^16.2.2",
+		"browserify": "^17.0.0",
 		"pkg": "^4.4.0",
 		"uglify-es": "^3.3.9",
 		"uglifyify": "^5.0.1"
