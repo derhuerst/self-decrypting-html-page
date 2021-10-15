@@ -1,7 +1,7 @@
 {
 	"name": "self-decrypting-html-page",
 	"description": "Generate a standalone HTML page that decrypts data.",
-	"version": "2.0.5",
+	"version": "3.0.0",
 	"main": "generate.js",
 	"bin": {
 		"self-decrypting-html-page": "./cli.js"
@@ -29,7 +29,7 @@
 	"bugs": "https://github.com/derhuerst/self-decrypting-html-page/issues",
 	"license": "ISC",
 	"engines": {
-		"node": ">=8"
+		"node": ">=14"
 	},
 	"dependencies": {
 		"mri": "^1.1.4",
@@ -41,7 +41,7 @@
 		"babelify": "^10.0.0",
 		"brfs": "^2.0.0",
 		"browserify": "^17.0.0",
-		"pkg": "^4.4.0",
+		"pkg": "^5.3.3",
 		"uglify-es": "^3.3.9",
 		"uglifyify": "^5.0.1"
 	},
