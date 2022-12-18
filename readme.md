@@ -8,7 +8,7 @@
 [![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)
 [![chat with me on Twitter](https://img.shields.io/badge/chat%20with%20me-on%20Twitter-1da1f2.svg)](https://twitter.com/derhuerst)
 
-The idea is two have a tool that encrypts any message/secret and generates something that can *decrypt itself*. I see two advantages of the HTML-based solution over others:
+The idea is to have a tool that encrypts any message/secret and generates something that can *decrypt itself*. I see two advantages of the HTML-based solution over others:
 
 - **low entry-barrier**: Everyone has a web browser. Everyone with a reasonably modern browser will be able to use the tool, without installing anything. It is also more platform-independent than other solutions.
 - **self-contained**: The generated page has all the logic built-in that it needs to decrypt the encrypted message. It can be stored as a standalone file.
