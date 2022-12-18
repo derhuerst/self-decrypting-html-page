@@ -5,7 +5,9 @@
 	<meta charset="utf-8">
 	<title>self-decrypting-html-page</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<style>
+	<meta http-equiv="Content-Security-Policy"
+          content= "default-src 'none';script-src 'nonce-{{nonce}}';style-src 'nonce-{{nonce}}'"/>
+   <style nonce="{{nonce}}">
 body {
 	margin: 0 auto; padding: 0 1em; max-width: 28em;
 	font-size: 110%; font-family: "Helvetica Neue", sans-serif;
@@ -53,7 +55,7 @@ pre code {
 	<button id="submit">decrypt the message</button>
 	<pre id="message" class="hidden"></pre>
 
-{{nonce}}
+{{nonce-script}}
 {{encrypted}}
 {{js}}
 
