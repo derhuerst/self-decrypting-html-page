@@ -24,6 +24,9 @@
 		"cli"
 	],
 	"author": "Jannis R <mail@jannisr.de>",
+	"contributors": [
+		"Ambuj sahu <Ambuj.sahu1998@gmail.com>"
+    ],
 	"homepage": "https://github.com/derhuerst/self-decrypting-html-page",
 	"repository": "derhuerst/self-decrypting-html-page",
 	"bugs": "https://github.com/derhuerst/self-decrypting-html-page/issues",
