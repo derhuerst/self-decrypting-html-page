@@ -1,7 +1,7 @@
 {
 	"name": "self-decrypting-html-page",
 	"description": "Generate a standalone HTML page that decrypts data.",
-	"version": "3.1.0",
+	"version": "3.1.1",
 	"main": "generate.js",
 	"bin": {
 		"self-decrypting-html-page": "./cli.js"
@@ -49,7 +49,7 @@
 		"uglifyify": "^5.0.1"
 	},
 	"scripts": {
-		"build-client": "browserify -g [ babelify --presets [@babel/preset-env] ] -g uglifyify lib/decrypt.js | uglifyjs -mc >decrypt.js",
+		"build-client": "browserify -g [ babelify --presets [@babel/preset-env] ] -g uglifyify lib/decrypt.js | uglifyjs -mc -o decrypt.js",
 		"build-custom-html": "brfs lib/custom-html.js >custom-html.js",
 		"build-generate": "brfs lib/generate.js >generate.js",
 		"build": "npm run build-client && npm run build-custom-html && npm run build-generate",
