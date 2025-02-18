@@ -3,7 +3,6 @@
 **Generate a standalone HTML page that decrypts an encrypted message.** Used by [`html-vault`](https://github.com/derhuerst/html-vault#html-vault-).
 
 [![npm version](https://img.shields.io/npm/v/self-decrypting-html-page.svg)](https://www.npmjs.com/package/self-decrypting-html-page)
-[![build status](https://img.shields.io/travis/derhuerst/self-decrypting-html-page.svg)](https://travis-ci.org/derhuerst/self-decrypting-html-page)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/self-decrypting-html-page.svg)
 [![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)
 [![chat with me on Twitter](https://img.shields.io/badge/chat%20with%20me-on%20Twitter-1da1f2.svg)](https://twitter.com/derhuerst)
